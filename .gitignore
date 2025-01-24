@@ -1,0 +1,105 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log*
+
+# Directorios de Build
+build/
+dist/
+.eslintcache
+.cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencias de Craco y Webpack
+craco.config.js
+public/assets/
+
+# Archivos de Entorno
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Archivos de Logs y Reportes
+logs/
+*.log
+report.*
+*.tsbuildinfo
+
+# Archivos de cobertura de pruebas
+coverage/
+jest/
+jest-cache/
+jest-stare/
+
+# EditorConfig / Configuraciones de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Archivos de Docker y despliegue en Railway
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Archivos de Service Workers y Caché
+public/sw.js
+public/workbox-*
+public/manifest.json# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
