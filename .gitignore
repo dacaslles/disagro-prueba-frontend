@@ -19,7 +19,6 @@ dist/
 Thumbs.db
 
 # Dependencias de Craco y Webpack
-craco.config.js
 public/assets/
 
 # Archivos de Entorno
