@@ -17,10 +17,22 @@ module.exports = {
       },
     },
   ],
-  webpack: {
-    alias: {
-      "@components": "./src/components",
-      "@pages": "./src/pages",
-    },
+  babel: {
+    presets: [],
+    plugins: [],
   },
+  webpack: {
+    configure: (webpackConfig) => {
+      webpackConfig.module.rules.forEach((rule) => {
+        if (rule.oneOf) {
+          rule.oneOf.forEach((loader) => {
+            if (loader.loader && loader.loader.includes("style-loader")) {
+              loader.loader = require.resolve("css-loader");
+            }
+          });
+        }
+      });
+      return webpackConfig;
+    },
+  }
 };
