@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { Form, Input, DatePicker, Button, Table, Typography, Card, Spin, TableProps, message, Layout, Row, Col } from "antd";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Form, Input, DatePicker, Button, Table, Typography, Card, Spin, TableProps, message, Layout, Row, Col, Result } from "antd";
 import useApi from "../../hooks/useApi";
 import { ItemComercial } from "../../types/ItemComercial";
 import { PromocionEvento } from "../../types/PromocionEvento";
@@ -15,6 +15,7 @@ const RegisterEvent = () => {
     const [searchParams] = useSearchParams();
     const eventId = searchParams.get("id");
     const [selectionType] = useState<'checkbox' | 'radio'>('checkbox');
+    const [isSuccess, setIsSuccess] = useState(false);
   
     const { request, loading } = useApi();
     const [eventDetails, setEventDetails] = useState<Evento | null>(null);
@@ -26,6 +27,7 @@ const RegisterEvent = () => {
     const [discountServices, setDiscountServices] = useState<number>(0);
     const [promotionProducts, setPromotionProducts] = useState<number | undefined>(0);
     const [promotionServices, setPromotionServices] = useState<number | undefined>(0);
+    const navigate = useNavigate();
 
     const [form] = Form.useForm();
   
@@ -90,7 +92,7 @@ const RegisterEvent = () => {
       
       try {
         await request("POST", "/events/register", payload);
-        message.success("Registro exitoso");
+        setIsSuccess(true);
       } catch (error) {
         message.error("Error en el registro, intente nuevamente");
       }
@@ -136,6 +138,10 @@ const RegisterEvent = () => {
         applyPromotions(selectedRows);
       },
     };
+
+    const gotToEvents = () => {
+      navigate("/events");
+    }
   
     const columns = [
       {
@@ -178,7 +184,14 @@ const RegisterEvent = () => {
         </Header>
         <Content style={{ flex: 1 }}>
           <Card style={{ margin: "1rem" }}>
-            {loading ? (
+            { isSuccess ? (
+              <Result
+                status={"success"}
+                title={"Registro Exitoso"}
+                subTitle={"Gracias por registrarte al evento"}
+                extra={[<Button type="primary" onClick={gotToEvents}>Ir a eventos</Button>]}
+                />
+            ) : loading ? (
               <Spin size="large" />
             ) : (
               <div style={{ display: "flex", gap: "20px" }}>
