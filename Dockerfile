@@ -1,7 +1,6 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 
-RUN corepack enable
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
