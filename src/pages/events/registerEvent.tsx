@@ -14,7 +14,7 @@ const { Title } = Typography;
 const RegisterEvent = () => {
     const [searchParams] = useSearchParams();
     const eventId = searchParams.get("id");
-    const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
+    const [selectionType] = useState<'checkbox' | 'radio'>('checkbox');
   
     const { request, loading } = useApi();
     const [eventDetails, setEventDetails] = useState<Evento | null>(null);
@@ -47,7 +47,7 @@ const RegisterEvent = () => {
         }
       };
       fetchProducts();
-    }, [request]);
+    }, [eventId, request]);
   
     const handleRegister = async (values: any) => {
       const { nombres, apellidos, email, fecha_registro } = values;

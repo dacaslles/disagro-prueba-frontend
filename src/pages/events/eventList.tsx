@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table, Tag, Typography, Spin, Card, Button, Layout } from "antd";
+import { Table, Typography, Spin, Card, Button, Layout } from "antd";
 import useApi from "../../hooks/useApi";
 import { Evento } from "../../types/Evento";
 import { useNavigate } from "react-router-dom";
