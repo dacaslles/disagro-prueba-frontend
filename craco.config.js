@@ -18,12 +18,6 @@ module.exports = {
       },
     },
   ],
-  babel: {
-    presets: ["react-app"],
-    plugins: (plugins) => {
-      return plugins.filter((plugin) => plugin !== "react-refresh/babel");
-    },
-  },
   webpack: {
     configure: (webpackConfig) => {
       webpackConfig.module.rules.forEach((rule) => {
