@@ -49,9 +49,9 @@ jest-stare/
 *.tmp
 
 # Archivos de Docker y despliegue en Railway
-Dockerfile
-docker-compose.yml
-.dockerignore
+# Dockerfile
+# docker-compose.yml
+# .dockerignore
 
 # Archivos de Service Workers y Caché
 public/sw.js
