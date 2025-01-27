@@ -22,10 +22,11 @@ module.exports = {
     configure: (webpackConfig) => {
       webpackConfig.module.rules.forEach((rule) => {
         if (rule.oneOf) {
-          rule.oneOf.forEach((loader) => {
+          rule.oneOf = rule.oneOf.filter((loader) => {
             if (loader.loader && loader.loader.includes("style-loader")) {
-              loader.loader = require.resolve("css-loader");
+              return process.env.NODE_ENV !== "production";
             }
+            return true;
           });
         }
       });
