@@ -19,7 +19,7 @@ module.exports = {
   ],
   babel: {
     presets: [],
-    plugins: [],
+    plugins: whenDev(() => ["react-refresh/babel"], []),
   },
   webpack: {
     configure: (webpackConfig) => {
